@@ -1,0 +1,25 @@
+<div class="container">
+    
+
+        <h1>To do list app</h1>
+        <button (click)="changeroute()">Go to alarm</button>
+        <div style="margin-left: 5%;">
+            <input type="text"  placeholder="{{showPlaceholder}}" [(ngModel)]="taskToAdd">&nbsp;
+            <button (click)="addListToDo(taskToAdd)">add task</button>
+        </div>
+        
+
+        <table style="margin-left: 5%;">
+            <tr *ngFor = "let taskIterator of toDoTasksList">
+                <td>
+                    <input type="checkbox" style="height: 20px;width: 20px;"
+                    [(ngModel)]="taskIterator.taskStatus"
+                    [disabled]="taskIterator.taskStatus">
+                </td>
+                <td>
+                    {{taskIterator.taskDesc}}
+                </td>
+            </tr>
+        </table>
+
+</div>
