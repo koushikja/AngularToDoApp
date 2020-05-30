@@ -1,15 +1,16 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <div class="container">
     
 
         <h1>To do list app</h1>
         <button (click)="changeroute()">Go to alarm</button>
         <div style="margin-left: 5%;">
-            <input type="text"  placeholder="{{showPlaceholder}}" [(ngModel)]="taskToAdd">&nbsp;
-            <button (click)="addListToDo(taskToAdd)">add task</button>
+            <input id="add" type="text"  placeholder="{{showPlaceholder}}" [(ngModel)]="taskToAdd">&nbsp;
+            <button onclick="document.getElementById('add').value = ''" (click)="addListToDo(taskToAdd)">add task</button>
         </div>
         
 
-        <table style="margin-left: 5%;">
+        <table style="margin-left: 5%; ">
             <tr *ngFor = "let taskIterator of toDoTasksList">
                 <td>
                     <input type="checkbox" style="height: 20px;width: 20px;"
@@ -18,6 +19,7 @@
                 </td>
                 <td>
                     {{taskIterator.taskDesc}}
+                    <i class="fa fa-trash-o" style="text-align: left;" (click)="removeFromTasksList(taskIterator.uniqueTaskId)"></i>
                 </td>
             </tr>
         </table>

@@ -23,10 +23,11 @@ toDoTasksList:toDoTask[] = [];
   }
   addListToDo(taskToAdd){
     this.toDoTasksList.push({taskDesc:taskToAdd, taskStatus:false, uniqueTaskId:Math.floor(Math.random()*100)})
+   
   }
 
   removeFromTasksList(taskIdToBeRemoved:number){
-
+    this.toDoTasksList.splice(this.toDoTasksList.findIndex(tasks => tasks.uniqueTaskId == taskIdToBeRemoved),1);
   }
   changeroute(){
     this.router.navigate(['alarm'])
